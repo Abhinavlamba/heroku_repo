@@ -1,6 +1,8 @@
 from flask import Flask
-from mylib.mat import fib as f
+from mylib.mat import api
+
 app = Flask(__name__)
+app.register_blueprint(api,url_prefix='/a')
 
 @app.route('/')
 def home():
