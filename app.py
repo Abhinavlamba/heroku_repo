@@ -1,13 +1,12 @@
 from flask import Flask
-from mylib.mat import fib as f
+from mylib.mat import api
+
 app = Flask(__name__)
+app.register_blueprint(api,url_prefix='/a')
 
 @app.route('/')
 def home():
     return "Home page success."
-@app.route('/fib/<int:n>')
-def fib(n):
-    return str(f(n))
 
 if __name__ == '__main__':
     print('Hello heroku')
